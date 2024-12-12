@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Gym</h1>
+        <img src="https://i.pinimg.com/736x/cc/8b/d8/cc8bd8845c5fe341e4f50a7feb966167.jpg"
+        <nav>
+            <ul>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#Contact.html">Contact</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="trainer.html">Trainer</a></li> <!-- Updated link -->
+                        <li><a href="image.html">image</a></li>
+                        <li><a href="schedule.html">schedule</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                        <li><a href="explore.html">explore</a></li>
+                        <li><a href="chatbot.html">chatbot</a></li>
+                        
+                       
+                    </ul>
+                </nav> 
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to helping you achieve your fitness goals.</p>
+    
+    </section>
+
+    <section id="services">
+
+            <h1>Our Services</h1>
+                <button class="service-button">Personal Training</button>
+                <div class="service-content">
+                    <p>Get personalized training plans tailored to your fitness level and goals.</p>
+                </div>
+    
+                <button class="service-button">Group Classes</button>
+                <div class="service-content">
+                    <p>Join our fun and engaging group classes for all fitness levels.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Nutrition Coaching</button>
+                <div class="service-content">
+                    <p>Receive expert advice on nutrition to complement your fitness routine.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Yoga Classes</button>
+                <div class="service-content">
+                    <p>Enhance your flexibility and mindfulness with our yoga sessions.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Cardio Training</button>
+                <div class="service-content">
+                    <p>Boost your endurance with our specialized cardio training programs.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Strength Training</button>
+                <div class="service-content">
+                    <p>Build muscle and strength with our guided strength training sessions.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Kids Fitness Programs</button>
+                <div class="service-content">
+                    <p>Fun and engaging fitness programs designed for children to promote healthy habits.</p>
+                </div>
+            </div>
+            <div class="service">
+                <button class="service-button">Online Coaching</button>
+                <div class="service-content">
+                    <p>Get fit from the comfort of your home with our online coaching services.</p>
+                </div>
+            </div>
+        </section>
+        
+        <ul id="service-list"></ul> <!-- This will be populated by JavaScript -->
+        
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+        <section id="membership-registration">
+            <h2>Membership Registration</h2>
+            <form id="registration-form" action="/register" method="POST">
+                <label for="reg-name">Full Name:</label>
+                <input type="text" id="reg-name" name="name" placeholder="Your Full Name" required
+                <label for="reg-email">Email:</label>
+                <input type="email" id="reg-email" name="email" placeholder="Your Email" required>
+    
+                <label for="reg-password">Password:</label>
+                <input type="password" id="reg-password" name="password" placeholder="Create a Password" required>
+    
+                <label for="membership-type">Membership Type:</label>
+                <select id="membership-type" name="membership-type" required>
+                    <option value="basic">Basic Membership</option>
+                    <option value="premium">Premium Membership</option>
+                    <option value="family">Family Membership</option>
+                </select>
+    
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    
+        <footer>
+            <p>&copy; 2024 Our Gym. All rights reserved.</p>
+        </footer>
+    
+        <script src="script.js"></script> <!-- Link to JavaScript file -->
+        <script>
+            document.querySelectorAll('.service-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Our Gym. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+    <script>
+        document.querySelectorAll('.service-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

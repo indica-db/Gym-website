@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .chat-box {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .input-box {
+            display: flex;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox"></div>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatHistory = [];
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const chatBox = document.getElementById('chatBox');
+
+            if (userInput.trim() === '') return;
+
+            displayMessage('You', userInput);
+            const botResponse = getBotResponse(userInput);
+            displayMessage('Bot', botResponse);
+
+            document.getElementById('userInput').value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function displayMessage(sender, message) {
+            const chatBox = document.getElementById('chatBox');
+            const messageElement = document.createElement('p');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatBox.appendChild(messageElement);
+            chatHistory.push({ sender, message });
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+            if (input.includes('hello')) return 'Hi there! How can I help you?';
+            if (input.includes('how are you')) return "I'm just a bot, but I'm doing great!";
+            if (input.includes('time')) return `The current time is ${new Date().toLocaleTimeString()}.`;
+            if (input.includes('date')) return `Today's date is ${new Date().toLocaleDateString()}.`;
+            if (input.includes('weather')) return "I can't check the weather yet, but I will soon!";
+            if (input.includes('joke')) return "Why don't scientists trust atoms? Because they make up everything!";
+            if (input.includes('thank you')) return "You're welcome! Happy to assist.";
+            return "I'm not sure how to respond to that.";
+        }
+    </script>
+</body>
+</html>
